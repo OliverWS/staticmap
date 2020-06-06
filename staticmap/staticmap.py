@@ -62,7 +62,7 @@ class CircleMarker:
 
 
 class IconMarker:
-    def __init__(self, coord, file_path, offset_x, offset_y):
+    def __init__(self, coord, file_path, offset_x, offset_y, rotation=0):
         """
         :param coord:  a lon-lat pair, eg (175.0, 0.0)
         :type coord: tuple
@@ -75,6 +75,7 @@ class IconMarker:
         """
         self.coord = coord
         self.img = Image.open(file_path, 'r')
+        self.img.rotate(rotation)
         self.offset = (offset_x, offset_y)
 
     @property
